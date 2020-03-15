@@ -46,6 +46,7 @@ body{
 
 .news{
     margin-top: 100px;
+    margin-bottom: 75px;
 }
 
 .news-title{
@@ -66,6 +67,19 @@ body{
     margin-left:10px;
     font-weight: 300;
     padding-bottom: 25px;
+}
+
+.lecture-schedule{
+    margin-left:10px;
+}
+
+.lecture-schedule-title{
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+.lecture-dates{
+    text-align: center;
 }
 
 @media (max-width: 450px){
