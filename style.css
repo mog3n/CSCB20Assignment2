@@ -146,6 +146,12 @@ box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
 }
 .lecture-dates{
     text-align: center;
+    border: 1px solid #dddddd;
+}
+
+.lecture-schedule td{
+    width: 100px;
+    border: 1px solid #dddddd;
 }
 
 @media (max-width: 450px){
