@@ -44,12 +44,37 @@ body{
     font-weight: 300;
 }
 
+.news{
+    margin-top: 100px;
+}
+
+.news-title{
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 10px;
+    padding-bottom: 30px;
+}
+
+.news-date{
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+.news-info{
+    margin-left:10px;
+    font-weight: 300;
+    padding-bottom: 25px;
+}
+
 @media (max-width: 450px){
     .summary{
         max-width: 100%;
     }
 
     .instructor{
+        margin-left: 0px;
         max-width: 100%;
     }
 }
