@@ -7,9 +7,22 @@
     </head>
 
     <body>
-        <div class="header">
-
+        <div class="header-container">
+            <div class="header-expanded" id="links">
+                <span class="header-link">Lecture Schedule</span>
+                <span class="header-link">WebOption</span>
+                <span class="header-link">Hours</span>
+                <span class="header-link">Discussion Board</span>
+                <span class="header-link">Assignments</span>
+                <span class="header-link">Resources</span>
+                <span class="header-link">News</span>
+            </div>
+            <div class="header" id="header">
+                <span class="header-name" id="menu-link-text">Menu</span>
+                <img class="header-sandwich" src="sandwich.svg"></img>
+            </div>
         </div>
+        
 
         <div class="introduction">
             <h1 class = "title">CSCB20: Intro to Databases and Web Apps</h1>
@@ -41,7 +54,72 @@
             </div>
         </div>
 
-        <script src="app.js" type="text/javascript" />
+        <div class="calendar">
+            <h2 class="title">Calendar</h2>
+            <iframe src="https://calendar.google.com/calendar/embed?src=062btcpe6ukskfptv62jsc7sug%40group.calendar.google.com&amp;ctz=America/Toronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+
+        <div class="lectures">
+            <h2 class="title">Lectures</h2>
+
+            <div class="lecture-list">
+                <div class="lecture-row">Week 1: Introduction, Databases background.
+                    <ol>
+                    <li><a href="http://www.utsc.utoronto.ca/~bretscher/b20/lectures/w1.pdf">Power Point</a></li>
+                    <li><a href="http://www.utsc.utoronto.ca/~bretscher/b20/lectures/w1_handout.pdf">Handout</a></li>
+                </ol>
+                </div>
+
+                <div class="lecture-row">Week 3: Schema Diagrams, Relational Algebra.
+                    <ol>
+                        <li><a href="http://www.utsc.utoronto.ca/~bretscher/b20/lectures/w2.pdf">Power Point</a></li>
+                        <li><a href="lectures/worksheets/schema_relational_algebra.pdf">Worksheet</a></li>
+                        <li><a href="lectures/worksheets/schema_relational_algebra_soln.pdf">Worksheet Solutions</a></li>
+                </ol>
+                </div>
+
+                <div class="lecture-row"> Week 4: SQL and MySQL
+
+                    <ol>
+                        <li><a
+                    href="http://www.utsc.utoronto.ca/~bretscher/b20/lectures/w3.pdf">Power 
+                    Point PDF</a></li>
+                    <li><a
+                    href="http://www.utsc.utoronto.ca/~bretscher/b20/lectures/w3_ppt_printable.pdf">Power 
+                    Point Printable PDF</a></li>
+                    <li>
+                    <a href="lectures/worksheets/mysql_intro.pdf">MySQL Worksheet</a></td><td>
+                    <a href="lectures/week4_inclass.rtf">In Class MySQL</a></li>
+                    </ol>
+
+                </div>
+            </div>
+
+            <div class="resources">
+                <div class="resources-header">Resources</div>
+                <div class="resources-content-header">Course website</div>
+
+                Course information, lecture notes, tutorial material, important announcements, etc. will be posted on the course website. It is your responsibility to visit it frequently.<br><br>
+
+                Beginner Tutorial for MySQL.
+                Email communication<br><br>
+
+                Questions regarding the course material, assignments, midterm, etc. should be posed on the bulletin board. Questions about the assignment which you feel you cannot formulate without revealing your solution (should be very rare!), as well as questions and concerns regarding your personal matters should be directed to the instructor.<br><br>
+
+                Discussion board<br><br>
+
+                You are encouraged to use the bulletin board to discuss the course material, pose questions on the assignments, etc. The bulletin board will be monitored by the instructor and by your TAs. Please, be very careful not to reveal (parts of) your solution on the bulletin board.
+
+                <div class="resources-content-header">Software and Documentation</div>
+                Logging into Mathlab. <br>
+        Mac OS comes with the application "terminal". Simple click on it to run. Login to mathlab by typing ssh utorid@mathlab.utsc.utoronto.ca. Enter your password.<br><br>
+
+
+        Windows - you will need a SSH client. PuTTY is a good free one. You can download and install here: PuTTY. Use the same command as above to login to mathlab:
+            </div>
+        </div>
+
+        <script src="app.js"></script>
     </body>
 
 </html>

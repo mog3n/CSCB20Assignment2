@@ -1,6 +1,70 @@
 body{
-    
     font-family: Calibri;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+}
+.header {
+    display: flex;
+    position: fixed;
+    background-color: #fff;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+
+    padding: 10px;
+    cursor: hand;
+
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.header:hover {
+    background-color: #eee;
+}
+
+
+.header-expanded {
+    top: 60px;
+    display: none;
+    position: fixed;
+    background-color: #fff;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+
+    padding: 20px;
+    margin: 10px;
+    margin-left: 0px;
+    
+    border-radius: 15px;
+}
+
+.header-name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.header-sandwich {
+    margin-left: 10px;
+}
+
+.header-link {
+    padding-right: 10px;
+    font-family: Calibri;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 5px;
 }
 
 .summary{
@@ -11,6 +75,10 @@ body{
     margin-right: 0px;
     font-size: 150%;
     font-weight: 300;
+}
+
+.introduction {
+    padding-top: 60px;
 }
 
 .instructor{
@@ -52,4 +120,45 @@ body{
     .instructor{
         max-width: 100%;
     }
+}
+
+.lecture-list {
+    margin-left: 10px;
+}
+
+.lecture-row {
+    background-color: #E2E2E2;
+    display: flex;
+
+    padding: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    transition: 0.3s;
+}
+
+.lecture-row:hover {
+    background-color: #1D1D1D;
+    color: #fff;
+}
+
+a {
+    color: #777;
+}
+
+.resources {
+    padding: 10px;
+}
+
+.resources-header {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.resources-content-header {
+    font-size: 2em;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
