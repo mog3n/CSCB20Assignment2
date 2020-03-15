@@ -3,8 +3,8 @@ function toggleHeader() {
     let menu_title = document.getElementById("menu-link-text");
 
     // Toggle between none and block
-    links.style.display = (links.style.display ===  "none") ? "block" : "none";
-    menu_title.innerHTML = (links.style.display==="block") ? "Close" : "Menu";
+    links.style.display = (links.style.display ===  "block") ? "none" : "block";
+    menu_title.innerHTML = (links.style.display === "block") ? "Close" : "Menu";
 }
 
 // Toggle drop down when header is clicked
