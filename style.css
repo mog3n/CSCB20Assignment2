@@ -1,0 +1,55 @@
+body{
+    
+    font-family: Calibri;
+}
+
+.summary{
+    max-width: 75%;
+    margin: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 0px;
+    font-size: 150%;
+    font-weight: 300;
+}
+
+.instructor{
+    background-color: rgb(240, 240, 240);
+    max-width: 300px;
+    margin: 100px;
+    margin-left:10px;
+    margin-right: 0px;
+    padding-bottom: 300px;
+}
+
+.instructor-title{
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+.title{
+    margin-left: 10px;
+}
+
+.instructor-name{
+    margin-bottom: 15px;
+    margin-left: 10px;
+    font-weight: 300;
+}
+
+.instructor-contact{
+    margin-left: 10px;
+    font-weight: 300;
+}
+
+@media (max-width: 450px){
+    .summary{
+        max-width: 100%;
+    }
+
+    .instructor{
+        max-width: 100%;
+    }
+}
