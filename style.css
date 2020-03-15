@@ -87,14 +87,14 @@ box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
     margin: 100px;
     margin-left:10px;
     margin-right: 0px;
-    padding-bottom: 300px;
+    padding-bottom: 50px;
 }
 
 .instructor-title{
     font-size: 30px;
     font-weight: 700;
-    margin-left: 10px;
-    padding-top: 10px;
+    margin-left: 30px;
+    padding-top: 15px;
 }
 
 .title{
@@ -103,13 +103,37 @@ box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
 
 .instructor-name{
     margin-bottom: 15px;
-    margin-left: 10px;
+    margin-left: 30px;
     font-weight: 300;
 }
 
 .instructor-contact{
-    margin-left: 10px;
+    margin-left: 30px;
     font-weight: 300;
+}
+
+.news{
+    margin-top: 100px;
+}
+
+.news-title{
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 10px;
+    padding-bottom: 30px;
+}
+
+.news-date{
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+.news-info{
+    margin-left:10px;
+    font-weight: 300;
+    padding-bottom: 25px;
 }
 
 @media (max-width: 450px){
@@ -118,6 +142,7 @@ box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
     }
 
     .instructor{
+        margin-left: 0px;
         max-width: 100%;
     }
 }
