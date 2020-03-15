@@ -1,10 +1,10 @@
 body{
-    font-family: Calibri;
+    font-family: Roboto;
 }
 
 .header-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 .header {
     display: flex;
@@ -15,14 +15,16 @@ body{
     justify-content: center;
 
     -webkit-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
 
     padding: 10px;
     cursor: hand;
 
     border-radius: 15px;
     transition: 0.3s;
+
+    width: 90px;
 }
 
 .header:hover {
@@ -35,36 +37,38 @@ box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
     display: none;
     position: fixed;
     background-color: #fff;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+
+    padding: 20px;
+    margin: 10px;
+    
+    border-radius: 15px;
 
     -webkit-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 26px -4px rgba(0,0,0,0.75);
-
-    padding: 20px;
-    margin: 10px;
-    margin-left: 0px;
-    
-    border-radius: 15px;
 }
 
 .header-name {
     font-weight: bold;
-    font-size: 22px;
+    font-size: 15px;
 }
 
 .header-sandwich {
     margin-left: 10px;
 }
 
+.calendar iframe {
+    border: 0;
+    left: 0;
+    top: 0;
+    height: 500px;
+    width: 100%;
+}
+
 .header-link {
-    padding-right: 10px;
-    font-family: Calibri;
     font-size: 16px;
-    font-weight: 300;
-    margin-bottom: 5px;
+    padding: 7px;
 }
 
 .summary{
