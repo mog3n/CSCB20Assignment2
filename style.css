@@ -205,6 +205,27 @@ body{
     border: 1px solid #dddddd;
 }
 
+.labs{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.labs-title{
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+
+.labs-week{
+    font-size: 30px;
+    font-weight: 300;
+    padding-bottom: 5px;
+}
+
+.labs-file{
+    padding-bottom:15px;
+}
+
 @media (max-width: 450px){
     .summary{
         max-width: 100%;
