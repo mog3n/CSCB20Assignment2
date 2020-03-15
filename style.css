@@ -73,7 +73,6 @@ body{
 
 .summary{
     max-width: 75%;
-    margin: 100px;
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 0px;
@@ -88,7 +87,7 @@ body{
 .instructor{
     background-color: rgb(240, 240, 240);
     max-width: 300px;
-    margin: 100px;
+    margin-top:10px;
     margin-left:10px;
     margin-right: 0px;
     padding-bottom: 50px;
@@ -117,14 +116,14 @@ body{
 }
 
 .news{
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .news-title{
     font-size: 30px;
     font-weight: 700;
     margin-left: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 
 .news-date{
@@ -137,7 +136,20 @@ body{
 .news-info{
     margin-left:10px;
     font-weight: 300;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.lecture-schedule{
+    margin-left:10px;
+}
+
+.lecture-schedule-title{
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+.lecture-dates{
+    text-align: center;
 }
 
 @media (max-width: 450px){
