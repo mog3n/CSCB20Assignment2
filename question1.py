@@ -29,6 +29,8 @@ def update_name(name):
     Returns:
         str: The modified string
     """
+    # Set name as string
+    name = str(name)
 
     # Remove numbers from name
     name_num_removed = remove_numbers(name)
