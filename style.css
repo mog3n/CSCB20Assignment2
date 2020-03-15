@@ -19,14 +19,14 @@ body{
     margin: 100px;
     margin-left:10px;
     margin-right: 0px;
-    padding-bottom: 300px;
+    padding-bottom: 50px;
 }
 
 .instructor-title{
     font-size: 30px;
     font-weight: 700;
-    margin-left: 10px;
-    padding-top: 10px;
+    margin-left: 30px;
+    padding-top: 15px;
 }
 
 .title{
@@ -35,12 +35,12 @@ body{
 
 .instructor-name{
     margin-bottom: 15px;
-    margin-left: 10px;
+    margin-left: 30px;
     font-weight: 300;
 }
 
 .instructor-contact{
-    margin-left: 10px;
+    margin-left: 30px;
     font-weight: 300;
 }
 
