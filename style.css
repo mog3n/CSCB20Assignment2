@@ -226,6 +226,24 @@ body{
     padding-bottom:15px;
 }
 
+.assignments{
+    margin-left: 10px;
+}
+
+.assignment-table{
+    margin-top: 15px;
+}
+.assignments-title{
+    font-size: 30px;
+    font-weight: 700;
+}
+.assignment{
+    background-color: rgb(240, 240, 240);
+}
+
+.announcement{
+    background-color: rgb(240, 240, 240);
+}
 @media (max-width: 450px){
     .summary{
         max-width: 100%;
