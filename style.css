@@ -16,6 +16,13 @@ body{
     }
 }
 
+@media(min-width: 2100px) {
+    .content {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
+
 .header-container {
     display: flex;
     justify-content: flex-end;
