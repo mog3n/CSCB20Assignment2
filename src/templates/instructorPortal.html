@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Instructor Portal</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <h3><a href="/home">Back</a></h3>
+    <h1>Instructor Portal</h1>
+
+    <h3>Student Feedback</h3>
+    
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>What do you recommend the instructor to do to improve their teaching?</th>
+        </tr>
+
+        {% for one in feedback %}
+        <tr>
+            <td>HIDDEN</td>
+            <td>{{one.feedback1}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Grades</h3>
+    
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Assignment</th>
+            <th>Grade</th>
+            <th>Remark Requested</th>
+        </tr>
+
+        {% for mark in marks %}
+        <tr>
+            <td>{{mark.s_username}}</td>
+            <td>{{mark.course_name}}</td>
+            <td>{{mark.assignment}}</td>
+            <td>
+                <form>
+                    <input type="hidden" value={{}} name="t_username" />
+                    <input type="hidden" value={{}} name="s_username" />
+                    <input type="text" value={{mark.grade}} name="grade">
+                    <input type="submit">
+                </form>
+            </td>
+            <td>{{mark.remark_requested}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <h3>Remarks Requested</h3>
+        <table>
+            <tr>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Assignment</th>
+                <th>Grade</th>
+                <th>Remark Requested</th>
+            </tr>
+
+            {% for assignment in remarks %}
+            <tr>
+                <td>{{assignment.s_username}}</td>
+                <td>{{assignment.course_name}}</td>
+                <td>{{assignment.assignment}}</td>
+                <td>
+                    <form>
+                        <input type="text" value={{assignment.grade}}>
+                        <input type="submit">
+                    </form>
+                </td>
+                <td>{{assignment.remark_requested}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+</body>
+
+</html>
