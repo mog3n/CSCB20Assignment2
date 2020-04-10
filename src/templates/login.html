@@ -2,24 +2,31 @@
 
     <head>
         <title>Login</title>
+        
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="login.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
-        <div>
-            <p>{{ error }}</p>
-            <form action="/" method="post">
-                <div class="dataRow">
-                    <p>Username</p>
-                    <input name="username" id="username" required/>
-                </div>
-                <div class="dataRow">
-                    <p>Password</p>
-                    <input name="password" id="password" type="password" required/>
-                </div>
-                <div class="dataRow">
-                    <input type="submit" value="Login">
-                </div>
-            </form>
+        <div class="container">
+            <div class="loginContainer">
+                <p class="error">{{ error }}</p>
+                <form action="/" method="post">
+                    <div class="dataRow">
+                        <p class="fieldLabel">Username</p>
+                        <input name="username" id="username" required/>
+                    </div>
+                    <div class="dataRow">
+                        <p class="fieldLabel">Password</p>
+                        <input name="password" id="password" type="password" required/>
+                    </div>
+                    <div class="dataRow">
+                        <input class="button" type="submit" value="Login">
+                    </div>
+                </form>
+            </div>
+            
         </div>
     </body>
 

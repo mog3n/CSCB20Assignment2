@@ -1,0 +1,65 @@
+body {
+    font-family: Roboto;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+    display: inline-block;
+    padding: 30px;
+    background-color: #00204E;
+
+    border-radius: 5px;
+}
+
+.dataRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fieldLabel {
+    padding-right: 20px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+
+    border: 1px solid white;
+    background-color: #00204E;
+    color: #fff;
+
+    font-size: 16px;
+}
+
+input:hover{
+    background-color: #22405E;
+}
+
+
+.button {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #00204E;
+    color: #fff;
+    
+    border: 1px solid white;
+}
+.button:hover{
+    background-color: #22405E;
+}
+
+.error {
+    font-weight: bold;
+}
