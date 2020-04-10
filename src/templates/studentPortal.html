@@ -32,11 +32,14 @@
             <td>
                 {% if mark[3] == 1 %}
                     <input type="button" disabled value="Remark Requested" />
+                    Reason: {{mark[5]}}
                 {% else %}
                     <form action="/requestRemark" method="POST">
+                        
                         <input type="hidden" name="mark_name" id="mark_name" value={{mark[1]}}>
                         <input type="hidden" name="s_username" id="s_username" value={{mark[0]}}>
                         <input type="hidden" name="class_id" id="class_id" value={{mark[4]}} >
+                        <input type="text" placeholder="Reason" id="reason" name="reason">
                         <input type="submit" value="Request" />
                     </form>
                 {% endif %}

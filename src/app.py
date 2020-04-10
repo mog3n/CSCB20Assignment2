@@ -80,12 +80,13 @@ def home():
 @app.route('/requestRemark', methods=['POST'])
 def remarkRequest():
     if request.method == "POST":
+        reason = request.form['reason']
         mark_name = request.form['mark_name']
         s_username = session['username']
         class_id = request.form['class_id']
 
-        p = (s_username, mark_name, class_id)
-        q = "UPDATE S_marks SET remark_request=1 WHERE s_username =? and mark_name=? and class_id=?"
+        p = (reason, s_username, mark_name, class_id)
+        q = "UPDATE S_marks SET remark_request=1, remark_reason=? WHERE s_username =? and mark_name=? and class_id=?"
 
         c = getDb().cursor()
         c.execute(q, p)
