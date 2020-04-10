@@ -6,7 +6,7 @@ app.secret_key = "meme_reivew"
 def getDb():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect('database.db')
+        db = g._database = sqlite3.connect('assignment3.db')
     return db
 
 @app.route('/', methods=['GET', 'POST'])
