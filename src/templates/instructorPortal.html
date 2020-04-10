@@ -19,11 +19,10 @@
             <th>Student</th>
             <th>What do you recommend the instructor to do to improve their teaching?</th>
         </tr>
-
-        {% for one in feedback %}
+        {% for f in feedback %}
         <tr>
             <td>HIDDEN</td>
-            <td>{{one.feedback1}}</td>
+            <td>{{f[2]}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -41,18 +40,19 @@
 
         {% for mark in marks %}
         <tr>
-            <td>{{mark.s_username}}</td>
-            <td>{{mark.course_name}}</td>
-            <td>{{mark.assignment}}</td>
+            <td>{{mark[0]}}</td>
+            <td>{{mark[4]}}</td>
+            <td>{{mark[1]}}</td>
             <td>
-                <form>
-                    <input type="hidden" value={{}} name="t_username" />
-                    <input type="hidden" value={{}} name="s_username" />
-                    <input type="text" value={{mark.grade}} name="grade">
+                <form action="/updateGrade" method="POST">
+                    <input type="hidden" name="mark_name" id="mark_name" value={{mark[1]}}>
+                    <input type="hidden" name="s_username" id="s_username" value={{mark[0]}}>
+                    <input type="hidden" name="class_id" id="class_id" value={{mark[4]}} >
+                    <input type="text" value={{mark[2]}} id="grade" name="grade">
                     <input type="submit">
                 </form>
             </td>
-            <td>{{mark.remark_requested}}</td>
+            <td>{% if mark[3] == 1 %}Yes{% else %}No{% endif %}</td>
         </tr>
         {% endfor %}
 
@@ -68,18 +68,21 @@
                 <th>Remark Requested</th>
             </tr>
 
-            {% for assignment in remarks %}
+            {% for mark in remarks %}
             <tr>
-                <td>{{assignment.s_username}}</td>
-                <td>{{assignment.course_name}}</td>
-                <td>{{assignment.assignment}}</td>
+                <td>{{mark[0]}}</td>
+                <td>{{mark[4]}}</td>
+                <td>{{mark[1]}}</td>
                 <td>
-                    <form>
-                        <input type="text" value={{assignment.grade}}>
+                    <form action="/updateGrade" method="POST">
+                        <input type="hidden" name="mark_name" id="mark_name" value={{mark[1]}}>
+                        <input type="hidden" name="s_username" id="s_username" value={{mark[0]}}>
+                        <input type="hidden" name="class_id" id="class_id" value={{mark[4]}} >
+                        <input type="text" value={{mark[2]}} id="grade" name="grade">
                         <input type="submit">
                     </form>
                 </td>
-                <td>{{assignment.remark_requested}}</td>
+                <td>{% if mark[3] == 1 %}Yes{% else %}No{% endif %}</td>
             </tr>
             {% endfor %}
 

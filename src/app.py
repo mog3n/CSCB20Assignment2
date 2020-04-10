@@ -7,11 +7,11 @@ def getDb():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = sqlite3.connect('database.db')
-    return db.cursor()
+    return db
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    d = getDb()
+    d = getDb().cursor()
 
     if request.method == 'POST':
         username = request.form['username']
@@ -24,9 +24,9 @@ def login():
         p = (username,password)
         d.execute('SELECT * FROM S_login WHERE s_username=? AND s_password=?', p)
         student = d.fetchone()
-        
+
         if student:
-            (id, usr, pw) = student
+            (usr, pw) = student
             session['loggedin'] = True
             session['username'] = username
             session['type'] = "student"
@@ -37,7 +37,7 @@ def login():
         teacher = d.fetchone()
 
         if teacher:
-            (id, usr, pw) = teacher
+            (usr, pw) = teacher
             session['loggedin'] = True
             session['username'] = username
             session['type'] = "teacher"
@@ -77,6 +77,22 @@ def home():
         type=session['type'] # type: student or teacher
     )
 
+@app.route('/requestRemark', methods=['POST'])
+def remarkRequest():
+    if request.method == "POST":
+        mark_name = request.form['mark_name']
+        s_username = session['username']
+        class_id = request.form['class_id']
+
+        p = (s_username, mark_name, class_id)
+        q = "UPDATE S_marks SET remark_request=1 WHERE s_username =? and mark_name=? and class_id=?"
+
+        c = getDb().cursor()
+        c.execute(q, p)
+        getDb().commit()
+
+        return redirect('/studentPortal')
+
 @app.route('/studentPortal', methods=['GET'])
 def grades():
     # ensure logged in
@@ -89,38 +105,12 @@ def grades():
 
     username = session['username']
     p=(username,)
-    d = getDb()
+    d = getDb().cursor()
     
     marks = []
-    for mark in d.execute('SELECT * FROM S_marks WHERE s_id=?', p):
-        t_mark = {
-            "s_username": mark[0],
-            "course_name": mark[1],
-            "assignment": mark[2],
-            "grade": mark[3],
-            "remark_request": mark[4]
-        }
+    for mark in d.execute('SELECT * FROM S_marks WHERE s_username=?', p):
+        marks.append(mark)
 
-        marks.append(t_mark)
-
-    # # Get grades for student
-    # marks = [
-    #         {
-    #             "s_username": "Mogen",
-    #             "course_name": "Gender Studies 1.0",
-    #             "assignment": "Gender Analysis",
-    #             "grade": 90,
-    #             "remark_requested": False
-    #         },
-    #         {
-    #             "s_username": "Mogen",
-    #             "course_name": "Gender Studies 1.0",
-    #             "assignment": "Midterm",
-    #             "grade": 69,
-    #             "remark_requested": True
-    #         }
-    #     ]
-    
     profs = []
     for prof in d.execute('SELECT t_username FROM T_login'):
         profs.append(prof[0])
@@ -128,29 +118,46 @@ def grades():
     username = session['username']
     return render_template('studentPortal.html', marks=marks, username=username, profs=profs)
 
+
 @app.route('/addFeedback', methods=['POST'])
 def addFeedback():
     if request.method == "POST":
-        
-        f1 = request.form['feedback1']
+        f1 = request.form['feedback']
         s = request.form['s_username']
         t = request.form['t_username']
         # do some querying
-        d = getDb()
+        d = getDb().cursor()
         p = (s, t, f1)
+        
+        q = "INSERT INTO Feedback values (?,?,?)"
+        d.execute(q, p)
+        getDb().commit()
+        return redirect('/studentPortal')
     
-        d.execute('INSERT INTO Feedback VALUES(?, ?, ?)', p)
-
-        return redirect(url_for('studentPortal'))
+    else:
+        return redirect('/studentPortal')
 
 @app.route('/')
 
 @app.route('/updateGrade', methods=['POST'])
 def updateGrade():
-    grade = request.form['grade']
-    student = request.form['s_username']
-    assignment = request.form['assignment']
 
+    if request.method == "POST":
+        grade = request.form['grade']
+        student = request.form['s_username']
+        class_id = request.form['class_id']
+        mark_name = request.form['mark_name']
+
+        p = (grade, student, mark_name, class_id)
+        q = "UPDATE S_marks SET grade=?, remark_request=0 WHERE s_username =? and mark_name=? and class_id=?"
+
+        d = getDb().cursor()
+        d.execute(q, p)
+        getDb().commit()
+
+        return redirect('/instructorPortal')
+    else:
+        return "You don't have permission lmao"
 
 
 @app.route('/instructorPortal', methods=['GET'])
@@ -163,25 +170,28 @@ def allgrades():
     if session['type'] != "teacher":
         return redirect(url_for('home'))
 
-    d = getDb()
-    feedbacks = []
-    for feedback in d.execute('SELECT * FROM Feedback ORDER BY s_username'):
-        feedbacks.append(feedback)
-    print(feedback)
-
-    d = getDb()
+    # Get all feedback
+    d = getDb().cursor()
+    feedback_list = []
+    for feedback in d.execute('SELECT * FROM Feedback'):
+        feedback_list.append(feedback)
+    print("Feedback")
+    print(feedback_list)
+    # Get all marks
+    d = getDb().cursor()
     marks = []
     for mark in d.execute('SELECT * FROM S_marks ORDER BY s_username'):
         marks.append(mark)
+    print("Marks")
     print(marks)
-
+    # Get a list of remarks
     remarks = []
     for mark in marks:
-        if mark['remark_requested'] == True:
+        if mark[3] == 1:
             remarks.append(mark)
 
     return render_template('instructorPortal.html',
-        feedback=feedback,
+        feedback=feedback_list,
         marks=marks,
         remarks=remarks,
     )

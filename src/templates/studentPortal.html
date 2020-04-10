@@ -12,6 +12,8 @@
     <h3><a href="/home">Home</a></h3>
     <h1>Student Portal: {{username}}</h1>
 
+    <h5>{{notification}}</h5>
+
     <h3>Grades</h3>
     
     <table>
@@ -24,14 +26,19 @@
 
         {% for mark in marks %}
         <tr>
-            <td>{{mark.course_name}}</td>
-            <td>{{mark.assignment}}</td>
-            <td>{{mark.grade}}</td>
+            <td>{{mark[4]}}</td>
+            <td>{{mark[1]}}</td>
+            <td>{{mark[2]}}</td>
             <td>
-                {% if mark['remark_requested'] == True %}
+                {% if mark[3] == 1 %}
                     <input type="button" disabled value="Remark Requested" />
                 {% else %}
-                    <input type="button" value="Request" />
+                    <form action="/requestRemark" method="POST">
+                        <input type="hidden" name="mark_name" id="mark_name" value={{mark[1]}}>
+                        <input type="hidden" name="s_username" id="s_username" value={{mark[0]}}>
+                        <input type="hidden" name="class_id" id="class_id" value={{mark[4]}} >
+                        <input type="submit" value="Request" />
+                    </form>
                 {% endif %}
             </td>
         </tr>
@@ -44,14 +51,11 @@
     {% for instructor in profs %}
     <form method="POST" action="/addFeedback">
             <div>Instructor: {{instructor}}</div>
-
-            <input type="hidden" name="t_username" value={{instructor}} />
-            <input type="hidden" name="s_username" value={{username}} />
-
             <div>What do you recommend the instructor to do to improve their teaching?</div>
-            <div><input name="feedback1" type="textarea" id="feedback1"/></div>
+            <input type="hidden" name="t_username" id="t_username" value={{instructor}} />
+            <input type="hidden" name="s_username" id="s_username" value={{username}} />
+            <div><input name="feedback" type="textarea" id="feedback"/></div>
             <input type="submit">
-        
     </form>
     {% endfor %}
 
