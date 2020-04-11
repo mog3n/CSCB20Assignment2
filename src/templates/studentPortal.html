@@ -14,9 +14,9 @@
 
     <h5>{{notification}}</h5>
 
-    <h3>Grades</h3>
+    <h3 class=secondary-title>Grades</h3>
     
-    <table>
+    <table class=greyGridTable>
         <tr>
             <th>Course</th>
             <th>Assignment</th>
@@ -50,9 +50,9 @@
     </table>
 
 
-    <h3>Feedback</h3>
+    <h3 class=secondary-title>Feedback</h3>
     {% for instructor in profs %}
-    <form method="POST" action="/addFeedback">
+    <form class=feedback method="POST" action="/addFeedback">
             <div>Instructor: {{instructor}}</div>
             <div>What do you recommend the instructor to do to improve their teaching?</div>
             <input type="hidden" name="t_username" id="t_username" value={{instructor}} />

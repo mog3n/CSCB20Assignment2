@@ -9,14 +9,14 @@
 
 <body>
 
-    <h3><a href="/home">Back</a></h3>
+    <h3><a href="/home">Home</a></h3>
     <h1>Instructor Portal</h1>
 
-    <h3>Student Feedback</h3>
+    <h3 class=secondary-title>Student Feedback</h3>
     
-    <table>
+    <table class=feedback>
         <tr>
-            <th>Student</th>
+            <th>Student:</th>
             <th>What do you recommend the instructor to do to improve their teaching?</th>
         </tr>
         {% for f in feedback %}
@@ -26,10 +26,10 @@
         </tr>
         {% endfor %}
     </table>
-
-    <h3>Grades</h3>
     
-    <table>
+    <h3 class=secondary-title>Grades</h3>
+    
+    <table class=greyGridTable>
         <tr>
             <th>Student</th>
             <th>Course</th>
@@ -60,8 +60,8 @@
 
     </table>
 
-    <h3>Remarks Requested</h3>
-        <table>
+    <h3 class="secondary-title">Remarks Requested</h3>
+        <table class=greyGridTable>
             <tr>
                 <th>Student</th>
                 <th>Course</th>
